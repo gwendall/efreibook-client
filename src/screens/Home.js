@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView, View, Text, Button, TextInput } from 'react-native';
+import { ScrollView, View, Text, Button, TextInput, StyleSheet } from 'react-native';
 import styled from 'styled-components';
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
@@ -40,13 +40,14 @@ const Screen = () => {
     }
   });
   return (
+    <>
+    <Input
+      value={q}
+      onChangeText={v => setQ(v)}
+      placeholder="Rechercher une personne..."
+    />
     <ScrollView>
       <Container>
-        <TextInput
-          value={q}
-          onChangeText={v => setQ(v)}
-          placeholder="Rechercher un user..."
-        />
   			{loading && <Text>{'Loading...'}</Text>}
   			{error && <Text>{`Error! ${error.message}`}</Text>}
   			{!loading && !error && (
@@ -54,6 +55,7 @@ const Screen = () => {
   			)}
       </Container>
     </ScrollView>
+    </>
   );
 }
 Screen.navigationOptions = {
@@ -65,4 +67,12 @@ const Container = styled.View`
 	flex: 1;
 	align-items: center;
 	justify-content: center;
+`
+const Input = styled.TextInput`
+  height: 50px;
+  width: 100%;
+  border-bottom-color: rgba(0, 0, 0, .1);
+  border-bottom-width: ${StyleSheet.hairlineWidth};
+  padding: 0 15px;
+  background-color: rgba(0, 0, 0, .02)
 `
