@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-
+import React from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 import RootNavigator from './src/navigator';
@@ -15,4 +13,4 @@ const App = () => (
   </ApolloProvider>
 )
 
-export default App
+export default App;
