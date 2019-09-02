@@ -4,17 +4,18 @@ import styled from 'styled-components';
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 
-const GET_ME = gql`
+const GET_USERS = gql`
   {
-    me {
+    users {
       id
-      name
+      firstName
+      lastName
     }
   }
 `;
 
 const Screen = () => {
-  const { loading, error, data } = useQuery(GET_ME);
+  const { loading, error, data } = useQuery(GET_USERS);
   return (
     <Container>
 			{loading && <Text>{'Loading...'}</Text>}
