@@ -1,10 +1,10 @@
 {
-  "devToolsPort": 19003,
+  "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 4905,
+  "packagerPid": 8995,
   "expoServerNgrokUrl": "https://n8-57k.tamers.client.exp.direct",
   "packagerNgrokUrl": "https://packager.n8-57k.tamers.client.exp.direct",
-  "ngrokPid": 4913,
+  "ngrokPid": 9003,
   "webpackServerPort": null
 }

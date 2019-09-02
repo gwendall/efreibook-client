@@ -1,32 +1,64 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { ScrollView, View, Text, Button, TextInput } from 'react-native';
 import styled from 'styled-components';
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 
-const GET_USERS = gql`
-  {
-    users {
-      id
-      firstName
-      lastName
+const queries = {
+  GET_USERS: gql`
+    {
+      users {
+        lastName
+      }
     }
-  }
-`;
-
-const Screen = () => {
-  const { loading, error, data } = useQuery(GET_USERS);
-  return (
-    <Container>
-			{loading && <Text>{'Loading...'}</Text>}
-			{error && <Text>{`Error! ${error.message}`}</Text>}
-			{!loading && !error && (
-				<Text>{JSON.stringify(data, null, 2)}</Text>
-			)}
-    </Container>
-  );
+  `,
+  GET_USER: gql`
+    query user($id: ID!) {
+      user(id: $id) {
+        id
+        firstName
+        lastName
+      }
+    }
+  `,
+  SEARCH_USER: gql`
+    query xxx($q: String!) {
+      search(q: $q) {
+        id
+        firstName
+        lastName
+      }
+    }
+  `
 }
 
+const Screen = () => {
+  const [q, setQ] = useState('')
+  const { loading, error, data } = useQuery(queries.SEARCH_USER, {
+    variables: {
+      q: q
+    }
+  });
+  return (
+    <ScrollView>
+      <Container>
+        <TextInput
+          value={q}
+          onChangeText={v => setQ(v)}
+          placeholder="Rechercher un user..."
+        />
+  			{loading && <Text>{'Loading...'}</Text>}
+  			{error && <Text>{`Error! ${error.message}`}</Text>}
+  			{!loading && !error && (
+  				<Text>{JSON.stringify(data, null, 2)}</Text>
+  			)}
+      </Container>
+    </ScrollView>
+  );
+}
+Screen.navigationOptions = {
+  title: 'Home'
+}
 export default Screen;
 
 const Container = styled.View`
