@@ -1,6 +1,7 @@
 import React from 'react';
 import HomeScreen from './screens/Home';
 import UserScreen from './screens/User';
+import UserFormikScreen from './screens/UserFormik';
 import CameraScreen from './screens/Camera';
 import ContactsScreen from './screens/Contacts';
 import NotificationsScreen from './screens/Notifications';
@@ -17,12 +18,17 @@ const HomeStack = createStackNavigator({
   User: {
     screen: UserScreen,
   },
+  UserFormik: {
+    screen: UserFormikScreen,
+  },
 }, {
   initialRouteName: 'Home',
 });
 
 const TabNavigator = createBottomTabNavigator({
-  Home: HomeStack,
+  Home: {
+    screen: HomeStack
+  },
   Contacts: {
     screen: ContactsScreen,
   },
@@ -39,7 +45,7 @@ const TabNavigator = createBottomTabNavigator({
     screen: FormsScreen,
   },
 }, {
-  initialRouteName: 'Forms',
+  initialRouteName: 'Home',
 });
 
 const AppContainer = createAppContainer(TabNavigator);

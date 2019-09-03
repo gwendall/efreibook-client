@@ -28,7 +28,7 @@ const Screen = ({ navigation }) => {
           <FlatList
             data={data.search}
             renderItem={({ item: { id, firstName, lastName } }) => (
-              <TouchableOpacity onPress={() => navigation.navigate('User', { id })}>
+              <TouchableOpacity onPress={() => navigation.navigate('UserFormik', { id })}>
                 <ListItem>
                   <Text>{[firstName, lastName].join(' ')}</Text>
                 </ListItem>
