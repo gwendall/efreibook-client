@@ -89,14 +89,3 @@ const styles = {
 		fontSize: 30
 	}
 }
-
-/*
-import * as Yup from 'yup';
-
-validationSchema: Yup.object().shape({
-	email: Yup.string()
-		.required(i18n.t('screens.login.email.errors.required'))
-		.email(i18n.t('screens.login.email.errors.invalid')),
-	password: Yup.string().required(i18n.t('screens.login.password.errors.required')),
-}),
-*/
