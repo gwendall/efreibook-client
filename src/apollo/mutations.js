@@ -17,3 +17,11 @@ export const STORE_USER_EXPO_TOKEN = gql`
     }
   }
 `;
+
+export const SEND_NOTIFICATION = gql`
+  mutation sendNotification($token: String!) {
+    sendNotification(token: $token) {
+      success
+    }
+  }
+`;

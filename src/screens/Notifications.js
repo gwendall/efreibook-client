@@ -47,11 +47,22 @@ const Screen = () => {
 			token: expoToken
 		}})
 	}, [expoToken])
+	const [sendNotification] = useMutation(mutations.SEND_NOTIFICATION);
+	const onPressSend = () => {
+		sendNotification({
+			variables: {
+				token: expoToken
+			}
+		})
+	}
 	return (
 		<SafeAreaView>
 			<Text>{`Permission status : ${permissionStatus}`}</Text>
 			{permissionStatus === 'undetermined' && (
 				<Button title="Donner la permission" onPress={askNotificationsPermission} />
+			)}
+			{permissionStatus === 'granted' && (
+				<Button title="Envoyer une notification" onPress={onPressSend} />
 			)}
 		</SafeAreaView>
 	)
