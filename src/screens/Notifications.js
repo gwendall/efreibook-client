@@ -70,16 +70,3 @@ Notifications.addListener(({ origin, data }) => {
 		console.log('Notification clicked from outside.')
 	}
 })
-
-/*
-import { Notifications } from 'expo'
-useEffect(() => {
-  Notifications.getExpoPushTokenAsync().then(data => {
-    console.log('Got token.', data)
-  })
-}, [])
-
-const NotificationsModule = () => {
-  NOTIFICATIONS
-}
-*/
