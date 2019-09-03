@@ -9,3 +9,11 @@ export const EDIT_USER = gql`
     }
   }
 `;
+
+export const STORE_USER_EXPO_TOKEN = gql`
+  mutation storeUserExpoToken($token: String!) {
+    storeUserExpoToken(token: $token) {
+      success
+    }
+  }
+`;

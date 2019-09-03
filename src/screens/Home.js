@@ -35,6 +35,7 @@ const Screen = ({ navigation }) => {
               </TouchableOpacity>
             )}
             keyExtractor={({ id }) => id}
+            ItemSeparatorComponent={ItemSeparator}
           />
         )}
       </Container>
@@ -54,4 +55,7 @@ const ListItem = styled.View`
   padding: 0 15px;
   flex-direction: row;
   align-items: center;
+`
+const ItemSeparator = styled(Separator)`
+  margin-left: 15px;
 `
