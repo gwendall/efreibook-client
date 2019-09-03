@@ -15,6 +15,7 @@
     "expo-camera": "^6.0.0",
     "expo-contacts": "^6.0.0",
     "expo-permissions": "^6.0.0",
+    "formik": "^1.5.8",
     "graphql": "^14.5.4",
     "react": "16.8.3",
     "react-dom": "^16.8.6",
@@ -27,7 +28,8 @@
     "react-navigation": "^4.0.0",
     "react-navigation-stack": "^1.5.1",
     "react-navigation-tabs": "^2.3.0",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.3.2",
+    "yup": "^0.27.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

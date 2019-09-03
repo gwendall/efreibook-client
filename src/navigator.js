@@ -4,6 +4,8 @@ import UserScreen from './screens/User';
 import CameraScreen from './screens/Camera';
 import ContactsScreen from './screens/Contacts';
 import NotificationsScreen from './screens/Notifications';
+import AnimationsScreen from './screens/Animations'
+import FormsScreen from './screens/Forms'
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
@@ -20,7 +22,7 @@ const HomeStack = createStackNavigator({
 });
 
 const TabNavigator = createBottomTabNavigator({
-  HomeStack: HomeStack,
+  Home: HomeStack,
   Contacts: {
     screen: ContactsScreen,
   },
@@ -30,8 +32,14 @@ const TabNavigator = createBottomTabNavigator({
   Notifications: {
     screen: NotificationsScreen,
   },
+  Animations: {
+    screen: AnimationsScreen,
+  },
+  Forms: {
+    screen: FormsScreen,
+  },
 }, {
-  initialRouteName: 'Notifications',
+  initialRouteName: 'Forms',
 });
 
 const AppContainer = createAppContainer(TabNavigator);

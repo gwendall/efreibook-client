@@ -61,20 +61,19 @@ const Screen = () => {
 			{permissionStatus === 'undetermined' && (
 				<Button title="Donner la permission" onPress={askNotificationsPermission} />
 			)}
-			{permissionStatus === 'granted' && (
-				<Button title="Envoyer une notification" onPress={onPressSend} />
-			)}
+			<Button title="Envoyer une notification" onPress={onPressSend} />
 		</SafeAreaView>
 	)
 }
-// ExponentPushToken[blmmZaLG3Zmd3JOv9uFdyc]
+
 Screen.navigationOptions = {
 	title: 'Notifications'
 }
 
 export default Screen;
 
-Notifications.addListener(({ origin, data }) => {
+Notifications.addListener(({ origin, data, ...other }) => {
+	console.log('Received notification.', { origin, data, other })
 	if (origin === 'received') {
 		console.log('Notification received whilst app was open.')
 	} else if (origin === 'selected') {
